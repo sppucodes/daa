@@ -1,58 +1,42 @@
+public class FibonacciRecursive {
 
-
-
-class Fibonacii{
-
-    static void fibonaciiSeries(int N){//without rec
-
-        int n1 = 0;
-        int n2 = 1;
-
-        System.out.println(n1);
-        System.out.println(n2);
-
-        int itr1 = 0;
-
-        for(int i=2;i<=N;i++){
-            int c1 = n1 +n2;
-            n1 = n2;
-            n2 = c1;
-            // System.out.println(c1);
-
-            itr1++;
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
         }
-
-        System.out.println("Iterations: "+itr1);
     }
 
     public static void main(String[] args) {
-        
-        fibonaciiSeries(10);
+        int n = 10; // Change the value of n as needed
+        System.out.println("Fibonacci Series using Recursion:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
     }
 }
 
+//non re
+public class FibonacciNonRecursive {
 
+    public static void fibonacci(int n) {
+        int[] series = new int[n];
+        series[0] = 0;
+        series[1] = 1;
 
+        for (int i = 2; i < n; i++) {
+            series[i] = series[i - 1] + series[i - 2];
+        }
 
-package daa_practice;
-public class fib  //with recursion 
-{   
-	static int n1=0,n2=1,n3;
-	void fib(int i)
-	{
-		 if(i>=1)
-		 {
-			 n3=n1+n2;
-			 System.out.print(" "+n3);
-			 n1=n2;
-			 n2=n3;
-			 fib(i-1);
-		}
-	}	
-	public static void main(String[] args) 
-	{
-		System.out.print(n1+" "+n2);
-		fib f=new fib();
-		f.fib(10);
-	}
+        System.out.println("Fibonacci Series without Recursion:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(series[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 10; // Change the value of n as needed
+        fibonacci(n);
+    }
 }
